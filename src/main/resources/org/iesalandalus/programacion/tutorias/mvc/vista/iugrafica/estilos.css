@@ -1,0 +1,49 @@
+* {
+	-fx-font: 14 arial;
+	-fx-base: #D5DFD9;
+}
+
+.vbox {
+	-fx-background-color: #EFEEEE;
+}
+
+.menu-item, .context-menu {
+	-fx-background-color: #D5DFD9;
+}
+
+.menu-item:hover {
+	-fx-background-color: #61b4b8;
+}
+
+.titled-pane .title {
+	-fx-background-radius: 20 20 0 0;
+	-fx-border-color: #CDE1D2;
+}
+
+.titled-pane .content {
+	-fx-background-radius: 0 0 20 20;
+	-fx-border-color: none;
+}
+
+.titled-pane .title .text {
+	-fx-font: bold 20 "arial";
+	-fx-base: #b6e7c9;
+}
+
+.titled-pane .content {
+	-fx-background-color: #999999;
+}
+
+.button {
+	-fx-background-radius: 10;
+}
+
+#btAnadir, #btAceptar, #btListar, #btAnadirHoras, #btnAceptar {
+	-fx-font: 22 "arial";
+	-fx-base: #b6e7c9;
+}
+
+#btCancelar, #btBorrar, #btCerrar, #btnCancelar, #btnBorrar, #btnEliminar{
+	-fx-font: 20 "arial";
+	-fx-base: #dc143c;
+}

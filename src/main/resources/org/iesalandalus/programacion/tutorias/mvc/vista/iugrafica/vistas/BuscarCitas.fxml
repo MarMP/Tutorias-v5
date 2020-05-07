@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="352.0" prefWidth="731.0" stylesheets="@../estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.tutorias.mvc.vista.iugrafica.controladoresvistas.ControladorBuscarCitas">
+   <children>
+      <GridPane alignment="CENTER_LEFT" hgap="10.0" prefHeight="301.0" prefWidth="731.0" vgap="10.0">
+         <children>
+            <Label text="Sesiones:" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Hora cita:" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Alumnos:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <ListView fx:id="lvAlumnos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfHoraCita" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets right="500.0" />
+               </GridPane.margin></TextField>
+            <TableView fx:id="tvSesiones" prefHeight="110.0" prefWidth="534.0" GridPane.columnIndex="1">
+               <columns>
+                  <TableColumn fx:id="tcProfesor" prefWidth="151.0" text="Profesor/a" />
+                  <TableColumn fx:id="tcTutoria" prefWidth="109.0" text="Tutoría" />
+                  <TableColumn fx:id="tcFecha" prefWidth="105.0" text="Fecha" />
+                  <TableColumn fx:id="tcInicio" prefWidth="67.0" text="Inicio" />
+                  <TableColumn fx:id="tcFin" prefWidth="66.0" text="Fin" />
+                  <TableColumn fx:id="tcDuracion" prefWidth="81.0" text="Duración" />
+               </columns>
+            </TableView>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.0" minWidth="10.0" prefWidth="581.0" />
+         </columnConstraints>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <rowConstraints>
+            <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="731.0" spacing="20.0">
+         <children>
+            <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#buscarCita" prefHeight="30.0" prefWidth="86.0" text="Aceptar" />
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="86.0" text="Cancelar" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
