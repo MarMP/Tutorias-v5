@@ -21,8 +21,7 @@ public class FactoriaFuenteDatosMongoDB implements IFuenteDatos {
 
 	@Override
 	public ITutorias crearTutorias() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Tutorias();
 	}
 
 	@Override
