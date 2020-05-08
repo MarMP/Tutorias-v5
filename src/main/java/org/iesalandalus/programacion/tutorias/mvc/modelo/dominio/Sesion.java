@@ -25,7 +25,6 @@ public class Sesion implements Serializable {
 		setHoraFin(horafin);
 		setMinutosDuracion(minutosDuracion);
 		comprobarValidezSesion();
-
 	}
 
 	public Sesion(Sesion sesion) {

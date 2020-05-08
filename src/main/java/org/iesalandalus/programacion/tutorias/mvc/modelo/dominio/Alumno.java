@@ -17,7 +17,13 @@ public class Alumno implements Serializable {
 		setNombre(nombre);
 		setCorreo(correo);
 		incrementaUltimoIdentificador();
-		setExpediente(); 
+		setExpediente();
+	}
+
+	public Alumno(String nombre, String correo, int identificador) {
+		setNombre(nombre);
+		setCorreo(correo);
+		setExpediente(identificador);
 	}
 
 	public Alumno(Alumno alumno) {
@@ -43,22 +49,22 @@ public class Alumno implements Serializable {
 		}
 		if (nombre.trim().equals("")) {
 			throw new IllegalArgumentException("ERROR: El nombre no tiene un formato válido.");
-		} 
+		}
 		this.nombre = formateaNombre(nombre);
 
 		if (!this.nombre.matches(ER_NOMBRE)) {
 			throw new IllegalArgumentException("ERROR: El nombre no tiene un formato válido.");
-		}		
+		}
 	}
 
 	private String formateaNombre(String nombre) {
 		String cadenaMinus = nombre;
-		cadenaMinus = cadenaMinus.toLowerCase(); 
-		cadenaMinus = cadenaMinus.trim(); 
-		cadenaMinus = cadenaMinus.replaceAll(" +", " "); 
-		char[] cadCaracter = cadenaMinus.toCharArray(); 
-		cadCaracter[0] = Character.toUpperCase(cadCaracter[0]); 
-		
+		cadenaMinus = cadenaMinus.toLowerCase();
+		cadenaMinus = cadenaMinus.trim();
+		cadenaMinus = cadenaMinus.replaceAll(" +", " ");
+		char[] cadCaracter = cadenaMinus.toCharArray();
+		cadCaracter[0] = Character.toUpperCase(cadCaracter[0]);
+
 		for (int i = 0; i < cadenaMinus.length() - 1; i++)
 			if (cadCaracter[i] == ' ' || cadCaracter[i] == '.') {
 				cadCaracter[i + 1] = Character.toUpperCase(cadCaracter[i + 1]);
@@ -88,23 +94,30 @@ public class Alumno implements Serializable {
 	}
 
 	private void setExpediente() {
-		expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + ultimoIdentificador; 
+		expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + ultimoIdentificador;
+	}
+
+	private void setExpediente(int identificador) {
+		if (identificador <= 0) {
+			throw new NullPointerException("ERROR: El identificador tiene que ser mayor que cero. ");
+		}
+		this.expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + identificador;
 	}
 
 	private static void incrementaUltimoIdentificador() {
 		ultimoIdentificador++;
 	}
-	
-	public static void identificadorFichero (int ultimoIdentificadorFichero) {
+
+	public static void identificadorFichero(int ultimoIdentificadorFichero) {
 		ultimoIdentificador = ultimoIdentificadorFichero;
 	}
 
 	private String getIniciales() {
-		String[] nombres = nombre.split(" "); 
+		String[] nombres = nombre.split(" ");
 		String iniciales = "";
 		for (String nombre : nombres) {
 			if (!nombre.equals("")) {
-				iniciales = iniciales + nombre.charAt(0); 
+				iniciales = iniciales + nombre.charAt(0);
 			}
 		}
 		return iniciales.toUpperCase();
