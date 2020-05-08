@@ -26,8 +26,7 @@ public class FactoriaFuenteDatosMongoDB implements IFuenteDatos {
 
 	@Override
 	public ISesiones crearSesiones() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Sesiones();
 	}
 
 	@Override
