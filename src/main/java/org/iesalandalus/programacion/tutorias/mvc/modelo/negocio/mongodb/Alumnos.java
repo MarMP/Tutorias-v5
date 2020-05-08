@@ -22,7 +22,19 @@ public class Alumnos implements IAlumnos {
 	@Override
 	public void comenzar() {
 		coleccionAlumnos = MongoDB.getBD().getCollection(COLECCION);
+		calcularUltimoIdentificador();
 
+	}
+
+	private void calcularUltimoIdentificador() {
+		int ultimoIdentificador = 0;
+		for (Alumno alumno : get()) {
+			int identificador = Integer.parseInt(alumno.getExpediente().split("_")[2]);
+			if (identificador > ultimoIdentificador) {
+				ultimoIdentificador = identificador;
+			}
+			Alumno.identificadorFichero(ultimoIdentificador);
+		}
 	}
 
 	@Override
@@ -73,7 +85,7 @@ public class Alumnos implements IAlumnos {
 			throw new IllegalArgumentException("ERROR: No se puede borrar un alumno nulo.");
 		}
 		if (buscar(alumno) != null) {
-			coleccionAlumnos.deleteOne(eq(MongoDB.DNI, alumno.getCorreo()));
+			coleccionAlumnos.deleteOne(eq(MongoDB.CORREO, alumno.getCorreo()));
 		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún alumno con ese correo.");
 		}
